@@ -135,7 +135,8 @@ a {
 }
 
 .nav-links a:hover,
-.nav-links a:focus-visible {
+.nav-links a:focus-visible,
+.nav-links a[aria-current="page"] {
   opacity: 1;
   text-decoration: underline;
   text-underline-offset: 0.25rem;
@@ -375,15 +376,18 @@ p {
   background: var(--night);
   color: #fff;
   padding: clamp(1.5rem, 4vw, 3rem);
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  gap: 1.5rem;
-  align-items: center;
 }
 
 .callout p {
   margin-top: 0.75rem;
   color: rgba(255, 255, 255, 0.74);
+}
+
+.callout-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
 }
 
 .page-main {
@@ -462,33 +466,54 @@ p {
 .site-footer {
   background: var(--night);
   color: rgba(255, 255, 255, 0.72);
-  padding: 2rem 0;
 }
 
-.footer-grid {
+.footer-groups {
   width: min(var(--max), calc(100% - 40px));
   margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: space-between;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: start;
+  gap: 2.5rem 4rem;
+  padding: 2.5rem 0 2rem;
 }
 
-.footer-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+.footer-group {
+  display: grid;
+  gap: 0.45rem;
 }
 
-.footer-links a {
+.footer-group h2 {
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0 0 0.35rem;
+}
+
+.footer-group a {
+  display: block;
   text-decoration: none;
+  font-size: 0.93rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.72);
 }
 
-.footer-links a:hover,
-.footer-links a:focus-visible {
+.footer-group a:hover,
+.footer-group a:focus-visible {
+  color: #fff;
   text-decoration: underline;
   text-underline-offset: 0.24rem;
+}
+
+.footer-copy {
+  width: min(var(--max), calc(100% - 40px));
+  margin: 0 auto;
+  padding: 1.25rem 0 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.86rem;
+  color: rgba(255, 255, 255, 0.4);
 }
 
 @media (max-width: 860px) {
@@ -523,14 +548,8 @@ p {
 
   .strip-grid,
   .feature-grid,
-  .split,
-  .callout,
-  .contact-grid {
+  .split {
     grid-template-columns: 1fr;
-  }
-
-  .callout {
-    align-items: start;
   }
 }
 
@@ -538,8 +557,7 @@ p {
   .nav-wrap,
   .wrap,
   .hero-content,
-  .strip-grid,
-  .footer-grid {
+  .strip-grid {
     width: min(100% - 28px, var(--max));
   }
 
@@ -553,5 +571,10 @@ p {
 
   h1 {
     font-size: clamp(3rem, 18vw, 4.6rem);
+  }
+
+  .footer-groups {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
   }
 }

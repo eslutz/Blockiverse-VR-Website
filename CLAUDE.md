@@ -4,40 +4,55 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Local Development
 
-This is a plain static site — no build step, no package manager. Serve it with any HTTP server from the repo root:
+The site uses [Eleventy (11ty)](https://www.11ty.dev/) as a static site generator. Install dependencies and start the dev server:
 
 ```bash
-python3 -m http.server 8765
+npm install
+npm start        # serves at http://localhost:8765 with live reload
+npm run build    # outputs to _site/
 ```
 
-The `.claude/launch.json` config starts this server automatically via `preview_start`.
+The `.claude/launch.json` config starts the dev server automatically via `preview_start` (uses `npm start`).
 
 ## Deployment
 
-Pushing to `main` triggers `.github/workflows/pages.yml`, which deploys the repo root directly to GitHub Pages at [blockiversevr.com](https://blockiversevr.com). The `CNAME` file sets the custom domain; `.nojekyll` disables Jekyll processing.
+Pushing to `main` triggers `.github/workflows/pages.yml`, which runs `npm ci && npm run build` and deploys `_site/` to GitHub Pages at [blockiversevr.com](https://blockiversevr.com). `src/CNAME` sets the custom domain; `src/.nojekyll` disables Jekyll processing — both are passed through to `_site/` by Eleventy.
 
 ## Architecture
 
-Four standalone HTML pages, one shared stylesheet, no JavaScript:
+Eleventy processes `src/` and outputs to `_site/`. All nav and footer HTML lives once in `src/_includes/layouts/base.njk`; all pages inherit it via front matter.
 
 | Path | Purpose |
 |---|---|
-| `index.html` | Marketing homepage |
-| `privacy/index.html` | Privacy policy |
-| `support/index.html` | Support / contact |
-| `404.html` | Custom 404 (no nav header — minimal layout) |
+| `src/_includes/layouts/base.njk` | Shared HTML shell — `<head>`, nav, footer |
+| `src/index.njk` | Marketing homepage |
+| `src/privacy/index.njk` | Privacy policy |
+| `src/support/index.njk` | Support / contact |
+| `src/404.njk` | Custom 404 — standalone HTML, no layout |
+| `src/assets/styles.css` | Single stylesheet (~580 lines) |
 
-All pages share `/assets/styles.css` (single file, ~560 lines) and reference `/favicon.svg` for the browser tab icon.
+### Front matter convention
+
+Each page sets `layout`, `title`, `navCurrent` (matches a nav link name for `aria-current="page"`), and `innerPage` (true on interior pages to activate the sticky dark header):
+
+```yaml
+---
+layout: layouts/base.njk
+title: Support | Blockiverse VR
+navCurrent: support
+innerPage: true
+---
+```
 
 ### Design tokens (CSS custom properties on `:root`)
 
-The palette is defined once in `styles.css`:
+The palette is defined once in `src/assets/styles.css`:
 - `--leaf` `#2f7d47`, `--sky` `#1f91bd`, `--amber` `#f3a51d`, `--night` `#10191d`
 - `--ink`, `--ink-soft`, `--surface`, `--surface-alt`, `--line` for text and backgrounds
 
-The navbar brand-mark (`span.brand-mark`) is rendered entirely in CSS — gradient background with `::before`/`::after` pseudo-elements forming a plus shape. The `favicon.svg` replicates this mark exactly.
+The navbar brand-mark (`span.brand-mark`) is rendered entirely in CSS — gradient background with `::before`/`::after` pseudo-elements forming a plus shape. `src/favicon.svg` replicates this mark exactly.
 
 ### Header variants
 
-- `site-header` (no modifier) — absolute-positioned, transparent, for the hero homepage
-- `site-header inner-page` — sticky, dark semi-transparent blur, for interior pages
+- `site-header` (no modifier) — absolute-positioned, transparent, for the hero homepage (`innerPage: false`)
+- `site-header inner-page` — sticky, dark semi-transparent blur, for interior pages (`innerPage: true`)

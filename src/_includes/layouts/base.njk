@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ title }}</title>
+    {% if description %}<meta name="description" content="{{ description }}">{% endif %}
+    {% if ogTitle %}<meta property="og:title" content="{{ ogTitle }}">{% endif %}
+    {% if ogDescription %}<meta property="og:description" content="{{ ogDescription }}">{% endif %}
+    {% if ogImage %}<meta property="og:image" content="{{ ogImage }}">{% endif %}
+    {% if ogType %}<meta property="og:type" content="{{ ogType }}">{% endif %}
+    {% if canonical %}<link rel="canonical" href="{{ canonical }}">{% endif %}
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="stylesheet" href="/assets/styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header{% if innerPage %} inner-page{% endif %}">
+      <nav class="nav-wrap" aria-label="Primary navigation">
+        <a class="brand" href="/"{% if navCurrent == "home" %} aria-current="page"{% endif %} aria-label="Blockiverse VR home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>Blockiverse VR</span>
+        </a>
+        <div class="nav-links">
+          <a href="/privacy/"{% if navCurrent == "privacy" %} aria-current="page"{% endif %}>Privacy</a>
+          <a href="/support/"{% if navCurrent == "support" %} aria-current="page"{% endif %}>Support</a>
+          <a href="https://github.com/eslutz/Blockiverse-VR/discussions">Discussions</a>
+          <a href="https://github.com/eslutz/Blockiverse-VR">GitHub</a>
+        </div>
+      </nav>
+    </header>
+
+    {{ content | safe }}
+
+    <footer class="site-footer">
+      <div class="footer-groups">
+        <nav class="footer-group" aria-label="Site pages">
+          <h2>Site</h2>
+          <a href="/">Home</a>
+          <a href="/privacy/">Privacy</a>
+          <a href="/support/">Support</a>
+        </nav>
+        <nav class="footer-group" aria-label="Project links">
+          <h2>Project</h2>
+          <a href="https://github.com/eslutz/Blockiverse-VR">GitHub</a>
+          <a href="https://github.com/eslutz/Blockiverse-VR/wiki">Wiki</a>
+          <a href="https://github.com/eslutz/Blockiverse-VR/discussions">Discussions</a>
+          <a href="https://github.com/eslutz/Blockiverse-VR/issues">Issues</a>
+        </nav>
+        <nav class="footer-group" aria-label="Developer">
+          <h2>Developer</h2>
+          <a href="https://ericslutz.dev">ericslutz.dev</a>
+        </nav>
+      </div>
+      <p class="footer-copy">&copy; 2026 Eric Slutz. Blockiverse VR is source-available / All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>
