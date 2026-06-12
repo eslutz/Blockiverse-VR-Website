@@ -1,5 +1,5 @@
 :root {
-  color-scheme: light;
+  color-scheme: light dark;
   --ink: #182326;
   --ink-soft: #4f6267;
   --surface: #ffffff;
@@ -14,6 +14,29 @@
   --shadow: 0 18px 52px rgba(21, 36, 38, 0.14);
   --radius: 8px;
   --max: 1160px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --ink: #eef7f1;
+    --ink-soft: #b6c9c0;
+    --surface: #0f171a;
+    --surface-alt: #142024;
+    --line: rgba(255, 255, 255, 0.14);
+    --leaf: #73c98a;
+    --moss: #9fcb62;
+    --sky: #5bb9dc;
+    --amber: #f3b23f;
+    --violet: #9a8ce0;
+    --night: #0a1114;
+    --shadow: 0 18px 52px rgba(0, 0, 0, 0.36);
+  }
+
+  .framed-image {
+    border-color: rgba(255, 255, 255, 0.16);
+    background: #172529;
+  }
 }
 
 * {
