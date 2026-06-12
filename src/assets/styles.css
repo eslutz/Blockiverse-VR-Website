@@ -37,6 +37,12 @@
     border-color: rgba(255, 255, 255, 0.16);
     background: #172529;
   }
+
+  .framed-image figcaption {
+    background: #172529;
+    border-color: rgba(255, 255, 255, 0.12);
+    color: #b6c9c0;
+  }
 }
 
 * {
@@ -367,6 +373,19 @@ p {
   box-shadow: var(--shadow);
   border: 1px solid rgba(16, 25, 29, 0.12);
   background: #dfe8e2;
+}
+
+.framed-image img {
+  width: 100%;
+}
+
+.framed-image figcaption {
+  padding: 0.72rem 0.85rem;
+  border-top: 1px solid rgba(16, 25, 29, 0.1);
+  background: var(--surface);
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+  line-height: 1.35;
 }
 
 .fact-list {
