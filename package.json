@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "build": "eleventy",
+    "test:links": "node scripts/check-external-link-targets.js",
     "start": "eleventy --serve --port 8765"
   },
   "devDependencies": {
