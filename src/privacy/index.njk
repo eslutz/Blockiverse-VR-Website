@@ -11,25 +11,36 @@ innerPage: true
   <section class="page-hero">
     <div class="wrap">
       <h1>Privacy Policy</h1>
-      <p>Last updated: June 11, 2026.</p>
+      <p>Last updated: June 14, 2026.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="wrap content">
       <h2>Summary</h2>
-      <p>Blockiverse VR does not collect personal data. All game data — saves, settings, and diagnostic logs — stays on your device. It does not include advertising, does not use third-party analytics SDKs, and does not sell personal data.</p>
+      <p>Blockiverse VR is designed to collect as little personal data as possible. The game does not automatically upload personal data to Blockiverse-run servers, does not include advertising, does not use third-party analytics SDKs, and does not sell or rent personal data.</p>
 
       <h2>Information Blockiverse VR handles</h2>
       <ul>
         <li><strong>Meta platform data:</strong> When you use Meta platform features, such as Meta Horizon avatars, store services, or Meta Quest party chat, those features are provided by Meta under Meta's own policies. Blockiverse VR uses only the minimum platform identifiers needed to display avatars and connect a session.</li>
+        <li><strong>User age category:</strong> For Mixed Ages platform behavior, Blockiverse VR may request your Meta user age category once per online session. The game receives category values only, not your birthdate. The last known child, teen, or adult category may be cached locally on your device as a fallback when the API is offline or unavailable.</li>
         <li><strong>Local game data:</strong> World saves, player inventory, ruleset-defined world state, and comfort/settings preferences are stored locally on your device.</li>
         <li><strong>LAN multiplayer data:</strong> In local LAN multiplayer, devices exchange IP addresses and game state directly to host or join a session. This data is used for the active session and is not stored after the session ends.</li>
-        <li><strong>Diagnostic logs:</strong> The game can write local diagnostic logs to help debug crashes and performance issues. Logs are stored on the device and are not automatically uploaded. You can share them when contacting support.</li>
+        <li><strong>Diagnostic logs:</strong> The game can write local diagnostic logs to help debug crashes and performance issues. Development builds can also write optional verbose gameplay trace files with sanitized player pose, interaction, feedback, and environment-event records. Logs and trace files are stored on the device and are not automatically uploaded. You can choose to share them when contacting support.</li>
+      </ul>
+
+      <h2>How Blockiverse VR uses information</h2>
+      <ul>
+        <li>Meta platform identifiers are used to display avatars, apply platform services, and connect players in supported sessions.</li>
+        <li>User age category values are used to apply age-appropriate Meta platform feature behavior.</li>
+        <li>Local game data is used to save worlds, inventories, ruleset-defined world state, comfort settings, and preferences.</li>
+        <li>LAN multiplayer data is used only to host or join an active local network session.</li>
+        <li>Diagnostic logs and optional trace files are used only for troubleshooting, crash investigation, and performance debugging.</li>
       </ul>
 
       <h2>Information Blockiverse VR does not collect</h2>
       <ul>
+        <li>No birthdate.</li>
         <li>No precise location data.</li>
         <li>No advertising identifiers.</li>
         <li>No third-party analytics SDK data.</li>
@@ -37,11 +48,14 @@ innerPage: true
         <li>No in-app text or voice chat.</li>
       </ul>
 
+      <h2>Third-party services</h2>
+      <p>The only third-party platform integrated by Blockiverse VR is Meta, including Meta Horizon avatars, Meta Quest party chat, store services, and platform age-category services. Meta's handling of data is governed by Meta's own privacy policy and account settings.</p>
+
       <h2>Voice chat</h2>
       <p>Voice communication between players uses Meta Quest party chat, which is governed by Meta's privacy policy.</p>
 
-      <h2>Platform age requirements</h2>
-      <p>Blockiverse VR requires players to meet Meta's minimum age requirements for their region. The game collects no personal data from any player, keeping everyone's privacy intact.</p>
+      <h2>Children and platform age requirements</h2>
+      <p>Blockiverse VR requires players to meet Meta's minimum age requirements for their region. The game does not receive or store a birthdate. When Mixed Ages behavior applies, Blockiverse VR uses Meta-provided age category values to apply age-appropriate platform feature behavior. Child accounts keep access to base offline and LAN gameplay, while Meta social, profile, and avatar lookup features use fallback identity or avatar behavior unless current Meta policy review explicitly permits the feature.</p>
 
       <h2>Your choices</h2>
       <ul>
@@ -49,6 +63,9 @@ innerPage: true
         <li>You can manage Meta platform features through your Meta account and headset settings.</li>
         <li>You can choose whether to share local diagnostic logs or save files when requesting support.</li>
       </ul>
+
+      <h2>Data deletion requests</h2>
+      <p>You may request deletion of any diagnostic logs, save files, trace files, or support materials you chose to share with Blockiverse VR by emailing <a href="mailto:support@blockiversevr.com">support@blockiversevr.com</a>. There is no fee to request deletion. Local data that remains only on your device can be deleted by clearing the app's storage or uninstalling the app. Blockiverse VR may decline or delay a deletion request only when retention is required by law, security needs, dispute resolution, or another legal obligation.</p>
 
       <h2>Changes to this policy</h2>
       <p>This policy may be updated as Blockiverse VR evolves. Material changes will be reflected by the last-updated date on this page.</p>
