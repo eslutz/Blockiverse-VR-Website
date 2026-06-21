@@ -13,6 +13,7 @@ The site is built with [Eleventy](https://www.11ty.dev/) from Nunjucks templates
 - `src/assets/blockiverse-coop.jpg` - LAN co-op building scene image.
 - `src/favicon.svg`, `src/favicon.ico`, `src/favicon-16x16.png`, `src/favicon-32x32.png`, and `src/apple-touch-icon.png` - icon assets.
 - `src/CNAME` - GitHub Pages custom domain.
+- `src/robots.txt` - search crawler rules.
 - `.github/workflows/pages.yml` - GitHub Pages deployment workflow.
 
 ## Routes

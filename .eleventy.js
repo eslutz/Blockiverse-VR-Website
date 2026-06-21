@@ -6,6 +6,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/favicon-32x32.png");
   eleventyConfig.addPassthroughCopy("src/apple-touch-icon.png");
   eleventyConfig.addPassthroughCopy("src/CNAME");
+  eleventyConfig.addPassthroughCopy("src/robots.txt");
   eleventyConfig.addPassthroughCopy("src/.nojekyll");
 
   return {

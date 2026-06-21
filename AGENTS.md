@@ -38,6 +38,7 @@ Pushing to `main` triggers `.github/workflows/pages.yml`, builds the site, and d
 
 - Public URL: <https://blockiversevr.com>
 - Custom domain file: `src/CNAME`
+- Robots file: `src/robots.txt`
 - Stylesheet: `src/assets/styles.css`
 - Deployment workflow: `.github/workflows/pages.yml`
 - Validation command: `npm run build`
