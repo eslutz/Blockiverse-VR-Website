@@ -1,25 +1,47 @@
 # Blockiverse VR Website
 
-This repository is the static GitHub Pages source for [blockiversevr.com](https://blockiversevr.com).
+Static public website for Blockiverse VR at <https://blockiversevr.com>.
 
-## Pages Deployment
+The site is built with [Eleventy](https://www.11ty.dev/) from Nunjucks templates in `src/`. Shared page chrome, navigation, footer links, and metadata live in `src/_includes/layouts/base.njk`. The output is plain HTML and CSS with no runtime JavaScript.
 
-The site is deployed by `.github/workflows/pages.yml` using GitHub Pages Actions. The published artifact root is the repository root, and `CNAME` configures the custom domain `blockiversevr.com`.
+## Site Structure
 
-Action version evidence checked on 2026-06-11:
+- `src/index.njk` - home page.
+- `src/_includes/layouts/base.njk` - shared layout, metadata, header, and footer.
+- `src/assets/styles.css` - site styling.
+- `src/assets/blockiverse-hero.jpg` - first-person VR voxel-world hero image.
+- `src/assets/blockiverse-coop.jpg` - LAN co-op building scene image.
+- `src/favicon.svg`, `src/favicon.ico`, `src/favicon-16x16.png`, `src/favicon-32x32.png`, and `src/apple-touch-icon.png` - icon assets.
+- `src/CNAME` - GitHub Pages custom domain.
+- `.github/workflows/pages.yml` - GitHub Pages deployment workflow.
 
-- `actions/checkout@v6` from `https://github.com/actions/checkout/releases/latest`
-- `actions/configure-pages@v6` from `https://github.com/actions/configure-pages/releases/latest`
-- `actions/upload-pages-artifact@v5` from `https://github.com/actions/upload-pages-artifact/releases/latest`
-- `actions/deploy-pages@v5` from `https://github.com/actions/deploy-pages/releases/latest`
+## Routes
 
-GitHub's custom-domain documentation confirms that GitHub Pages uses a `CNAME` file for the custom domain setting.
+- `/` - product overview.
+- `/support/` - support URL.
+- `/privacy/` - privacy policy URL.
 
-## Art Assets
+## Support Intake
 
-The website art is original generated bitmap art for this project.
+GitHub Issues are the primary support route for reproducible bugs and development tasks. GitHub Discussions are used for questions, gameplay feedback, Quest setup help, feature ideas, and community build reports. Email is secondary.
 
-- `assets/blockiverse-hero.jpg` - first-person VR voxel-world hero.
-- `assets/blockiverse-coop.jpg` - LAN co-op building scene.
+## Local Development
 
-Source prompts used the built-in Image Generation tool and explicitly excluded third-party logos, Minecraft textures, Minecraft mobs, UI labels, text, and watermarks. The generated source PNGs remain under `~/.codex/generated_images/019eb62b-85af-7403-9703-28eb9b0b59cb/`; the committed website copies are JPEGs so they do not require Git LFS while `git-lfs` is unavailable locally.
+```sh
+npm install
+npm run start
+```
+
+Then open the local URL printed by Eleventy. Changes hot-reload.
+
+## Validation
+
+```sh
+npm run build
+```
+
+This repository currently has no dedicated `npm test` script. Use the build output and manual browser checks for route, layout, and asset validation.
+
+## Deployment
+
+Pushing to `main` triggers `.github/workflows/pages.yml`, which builds the site with Eleventy and deploys `_site/` to GitHub Pages. The custom domain `blockiversevr.com` is configured in GitHub Pages and emitted through `src/CNAME`.
