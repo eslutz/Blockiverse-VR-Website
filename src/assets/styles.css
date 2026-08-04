@@ -280,8 +280,12 @@ h2,
 }
 
 h1 {
-  font-size: clamp(3.25rem, 8vw, 7.8rem);
-  max-width: 9ch;
+  /* 9ch was narrower than the word "Blockiverse", so the hero's overflow:hidden
+     cut the wordmark to "Blockivers" at phone widths. The cap now clears the
+     longest word while still wrapping before "VR", and the mobile floor keeps
+     that word inside a 320px viewport. */
+  font-size: clamp(2.6rem, 8vw, 7.8rem);
+  max-width: 12ch;
 }
 
 h2 {
@@ -649,7 +653,10 @@ p {
   }
 
   h1 {
-    font-size: clamp(3rem, 18vw, 4.6rem);
+    /* 18vw made "Blockiverse" wider than the viewport, and the hero's
+       overflow:hidden cut it to "Blockivers". 14vw keeps the longest word
+       inside the content column from 320px up. */
+    font-size: clamp(2.4rem, 14vw, 4.6rem);
   }
 
   .footer-groups {
