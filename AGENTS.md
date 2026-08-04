@@ -12,6 +12,7 @@ This repository is the Eleventy source for the public Blockiverse VR website at 
 - Use Eleventy with Nunjucks templates from `src/` and plain generated HTML/CSS in `_site/`.
 - Keep shared page chrome, metadata, navigation, and footer behavior in `src/_includes/layouts/base.njk`.
 - Keep site styling in the existing stylesheet path for this repo.
+- Use the shared house typefaces: [Mona Sans](https://github.com/github/mona-sans) for body copy and [Hubot Sans](https://github.com/github/hubot-sans) for display text (`h1`, `h2`, the header wordmark). Self-host them from `src/assets/fonts/` and declare them with `@font-face` plus a `preload` link; never load fonts from a CDN. Both are SIL OFL 1.1 with Reserved Font Names, so ship them unmodified and keep `src/assets/fonts/OFL.txt` beside them. Always keep a system-font fallback stack after the family name so text renders before the woff2 arrives. Declare only the axes the files actually have — weight and width, no slant.
 - Keep public routes slash-normalized in links and canonical URLs.
 - Do not add runtime JavaScript unless a concrete user-facing requirement needs it.
 - Do not add visible App Store, TestFlight, or download links unless a real public URL exists.
@@ -40,6 +41,7 @@ Pushing to `main` triggers `.github/workflows/pages.yml`, builds the site, and d
 - Custom domain file: `src/CNAME`
 - Robots file: `src/robots.txt`
 - Stylesheet: `src/assets/styles.css`
+- Fonts: `src/assets/fonts/MonaSans.woff2`, `src/assets/fonts/HubotSans.woff2`, `src/assets/fonts/OFL.txt`
 - Deployment workflow: `.github/workflows/pages.yml`
 - Validation command: `npm run build`
 - Required routes: `/`, `/support/`, `/privacy/`
